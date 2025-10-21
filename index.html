@@ -25,6 +25,114 @@
     <link rel="icon" type="image/png" sizes="16x16" href="ma-favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
 
+<style>
+.company-card {
+    width: 240px;
+    height: 240px;
+    perspective: 1000px;
+    margin-bottom: 1rem;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s ease;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.company-card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+/* FRONT (logo) */
+.card-front {
+    background: #2C2C2D;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.card-front img {
+    width: 100%;         /* or 90% if you want some padding */
+    height: 100%;
+    object-fit: contain; /* keeps proportions */
+    display: block;      /* removes inline spacing gap */
+    margin: 0;           /* ensures no extra offset */
+    padding: 0;
+    vertical-align: middle; /* double-safety alignment */
+    line-height: 0;
+}
+
+/* BACK (text on hover) */
+.card-back {
+    background: var(--color-bg-alt, #141516);
+    color: var(--color-text, #f5f5f5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: rotateY(180deg);
+    flex-direction: column;
+    text-align: center;
+    padding: 0.75rem;
+}
+
+.card-back h4 {
+    margin: 0;
+    font-size: 2.5rem;   /* bigger text */
+    font-weight: 700;    /* bold */
+    letter-spacing: 1px; /* adds style */
+    color: var(--color-accent, #c9a86a);
+}
+
+.card-back p {
+    margin: 0.25rem 0 0;
+    font-size: 2.0rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* Optional hover lift */
+
+.company-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 16px; /* soft rounded corners */
+    overflow: hidden;    /* keeps inner glow consistent */
+}
+
+.company-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(201, 168, 106, 0.5); /* golden glow */
+    border-radius: 16px;
+}
+
+/* Make sure inner sides match the same rounding */
+.card-front,
+.card-back {
+    border-radius: 16px;
+}
+
+</style>
+
 </head>
 
 <body id="top">
@@ -176,8 +284,21 @@
             <div class="timeline__block">
                 <div class="timeline__bullet"></div>
                 <div class="timeline__header">
-                    <h4 class="timeline__title">TATA</h4>
-                    <h5 class="timeline__meta">Data Visualization Internship</h5>
+
+        <!-- Flip Card -->
+        <div class="company-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="images/logos/tata.png" alt="TATA Logo" />
+                </div>
+                <div class="card-back">
+                    <h4>TATA</h4>
+                    <p>Data Analytics Internship</p>
+                </div>
+            </div>
+        </div>
+        <!-- End Flip Card -->
+
                     <p class="timeline__timeframe">August 2025 - August 2025</p>
                 </div>
                 <div class="timeline__desc">
@@ -188,8 +309,22 @@
             <div class="timeline__block">
                 <div class="timeline__bullet"></div>
                 <div class="timeline__header">
-                    <h4 class="timeline__title">Deloitte</h4>
-                    <h5 class="timeline__meta">Data Analytics Internship</h5>
+
+        <!-- Flip Card -->
+        <div class="company-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="images/logos/deloitte.png" alt="Deloitte Logo" />
+                </div>
+                <div class="card-back">
+                    <h4>Deloitte</h4>
+                    <p>Data Analytics Internship</p>
+                </div>
+            </div>
+        </div>
+        <!-- End Flip Card -->
+
+
                     <p class="timeline__timeframe">August 2025 - August 2025</p>
                 </div>
                 <div class="timeline__desc">
@@ -200,8 +335,21 @@
             <div class="timeline__block">
                 <div class="timeline__bullet"></div>
                 <div class="timeline__header">
-                    <h4 class="timeline__title">Mabani Misr</h4>
-                    <h5 class="timeline__meta">Technical Office Team Leader</h5>
+
+        <!-- Flip Card -->
+        <div class="company-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="images/logos/mbg_mabanimisr.png" alt="MBG / Mabani Misr Logo" />
+                </div>
+                <div class="card-back">
+                    <h4>MBG|Mabani Misr</h4>
+                    <p>Technical Office Team Leader</p>
+                </div>
+            </div>
+        </div>
+        <!-- End Flip Card -->
+
                     <p class="timeline__timeframe">December 2024 - Present</p>
                 </div>
                 <div class="timeline__desc">
@@ -217,7 +365,7 @@
                 <p class="timeline__timeframe">January 2013 - November 2024</p>
             </div>
             <div class="timeline__desc">
-                <p>I advanced from Technical Office Engineer to Team Leader across leading firms like Orascom, Landmark Sabbour, Concrete Plus, and ECC. I specialized in analyzing project data, resolving technical discrepancies, and streamlining documentation—boosting efficiency by up to 85% and cutting turnaround times by 60%. My roles required constant evaluation of tender/IFC packages, data-driven reporting, and conflict resolution, achieving a consistent 97% client satisfaction rate. This journey reflects my growth in leadership and my evolution into data analytics and big data engineering, where I now apply the same analytical precision to drive smarter business decisions.</p>
+                <p>I advanced from Technical Office Engineer to Team Leader across leading firms like Orascom, Concrete Plus, and ECC. I specialized in analyzing project data, resolving technical discrepancies, and streamlining documentation—boosting efficiency by up to 85% and cutting turnaround times by 60%. My roles required constant evaluation of tender/IFC packages, data-driven reporting, and conflict resolution, achieving a consistent 97% client satisfaction rate. This journey reflects my growth in leadership and my evolution into data analytics and big data engineering, where I now apply the same analytical precision to drive smarter business decisions.</p>
             </div>
         </div>
         </div>
@@ -234,8 +382,22 @@
             <div class="timeline__block">
                 <div class="timeline__bullet"></div>
                 <div class="timeline__header">
-                    <h4 class="timeline__title">DEPI</h4>
-                    <h5 class="timeline__meta">HCIA - AI & Data Science - Huawei Big Data Engineer</h5>
+
+
+        <!-- Flip Card -->
+        <div class="company-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="images/logos/depi.png" alt="DEPI Logo" />
+                </div>
+                <div class="card-back">
+                    <h4>DEPI</h4>
+                    <p>HCIA - AI & Data Science - Huawei Big Data Engineer</p>
+                </div>
+            </div>
+        </div>
+        <!-- End Flip Card -->
+
                     <p class="timeline__timeframe">June 2025 - December 2025</p>
                 </div>
                 <div class="timeline__desc">
@@ -246,8 +408,21 @@
             <div class="timeline__block">
                 <div class="timeline__bullet"></div>
                 <div class="timeline__header">
-                    <h4 class="timeline__title">MaharaTech</h4>
-                    <h5 class="timeline__meta">Database Fundamentals</h5>
+
+        <!-- Flip Card -->
+        <div class="company-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="images/logos/maharatech.png" alt="MaharaTech Logo" />
+                </div>
+                <div class="card-back">
+                    <h4>MaharaTech</h4>
+                    <p>Database Fundamentals</p>
+                </div>
+            </div>
+        </div>
+        <!-- End Flip Card -->
+
                     <p class="timeline__timeframe">August 2025</p>
                 </div>
                 <div class="timeline__desc">
@@ -258,8 +433,21 @@
             <div class="timeline__block">
                 <div class="timeline__bullet"></div>
                 <div class="timeline__header">
-                    <h4 class="timeline__title">Google Coursera</h4>
-                    <h5 class="timeline__meta">Data Analytics Certificate</h5>
+
+        <!-- Flip Card -->
+        <div class="company-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="images/logos/googlecoursera.png" alt="Google Coursera Logo" />
+                </div>
+                <div class="card-back">
+                    <h4>Google Coursera</h4>
+                    <p>Data Analytics Certificate</p>
+                </div>
+            </div>
+        </div>
+        <!-- End Flip Card -->
+
                     <p class="timeline__timeframe">December 2024 - Present</p>
                 </div>
                 <div class="timeline__desc">
@@ -270,8 +458,21 @@
             <div class="timeline__block">
                 <div class="timeline__bullet"></div>
                 <div class="timeline__header">
-                    <h4 class="timeline__title">Misr International University</h4>
-                    <h5 class="timeline__meta">B.A. Degree in Architectural Engineering</h5>
+
+        <!-- Flip Card -->
+        <div class="company-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="images/logos/miu_logo.png" alt="MIU Logo" />
+                </div>
+                <div class="card-back">
+                    <h4>Misr International University</h4>
+                    <p>B.A. Degree in Architectural Engineering</p>
+                </div>
+            </div>
+        </div>
+        <!-- End Flip Card -->
+
                     <p class="timeline__timeframe">August 2012</p>
                 </div>
                 <div class="timeline__desc">
@@ -382,7 +583,7 @@
                             <img src="images/portfolio/gallery/Sample-1.png" alt="">
                 
                             <div class="modal-popup__desc">
-                                <h5>The White Lamp</h5>
+                                <h5>Data Viz</h5>
                                 <p>TATA Data Visualization</p>
                                 <ul class="modal-popup__cat">
                                     <li>Tableau</li>
@@ -407,14 +608,27 @@
 
                                 <div class="testimonial-slider__slide swiper-slide">
                                     <div class="testimonial-slider__author">
-                                        <img src="images/avatars/user-02.jpg" alt="Author image" class="testimonial-slider__avatar">
+                                        <img src="images/avatars/user-01.jpg" alt="Author image" class="testimonial-slider__avatar">
                                         <cite class="testimonial-slider__cite">
-                                            <strong>Hany El Sayed</strong>
-                                            <span>Project Manager, Elevate</span>
+                                            <strong>Mohamed Hussein</strong>
+                                            <span>Technical Office Manager, Mabani Misr</span>
                                         </cite>
                                     </div>
 				    <p>
-                                    Marina consistently brought clarity to complex project data. Her ability to identify discrepancies early and translate them into actionable insights saved us significant time and cost. She has a rare mix of technical precision and analytical vision."
+                                    "Eng. Marina is Leader on another level. Her leadership style make the work run smoothly. Never late, always ahead schedule. On a personal level, she treats her colleagues and subordinates with kindness, respect, and appreciation. One of the finest colleagues I 've ever worked with. I am honoured and proud to work with her."
+                                    </p>
+                                </div> <!-- end testimonial-slider__slide -->
+                
+                                <div class="testimonial-slider__slide swiper-slide">
+                                    <div class="testimonial-slider__author">
+                                        <img src="images/avatars/user-02.jpg" alt="Author image" class="testimonial-slider__avatar">
+                                        <cite class="testimonial-slider__cite">
+                                            <strong>Ahme Mamdouh</strong>
+                                            <span>Technical Office Director, ECC</span>
+                                        </cite>
+                                    </div>
+                                    <p>
+                                    "I had the pleasure of managing Marina Attala during her time as Technical Office Team Leader at ELEVATE Construction Company, where she consistently impressed me with her leadership, technical expertise, and dedication. She led a team of three engineers, reviewed over 15 Tender and IFC packages, and introduced a document management system that streamlined access to 500+ files and cut rework time by 50%. Her strong coordination with clients, consultants, and the PMO helped deliver complex projects like Azha North, Hard Rock Café Hurghada, and Remal Resort with great efficiency. She’s a driven, detail-oriented professional, and I truly wish her continued growth and success in her career. "
                                     </p>
                                 </div> <!-- end testimonial-slider__slide -->
                 
@@ -422,27 +636,28 @@
                                     <div class="testimonial-slider__author">
                                         <img src="images/avatars/user-03.jpg" alt="Author image" class="testimonial-slider__avatar">
                                         <cite class="testimonial-slider__cite">
-                                            <strong>Gary Mitchel</strong>
-                                            <span>Senio Consultant, Orascom</span>
+                                            <strong>Samer Gobran</strong>
+                                            <span>MEP Technical Manager, ECC</span>
                                         </cite>
                                     </div>
                                     <p>
-                                    Working with Marina was a game-changer. Her structured approach to workflows boosted our team’s efficiency, and her data-driven reporting gave leadership the confidence to make faster, smarter decisions.
+                                   "I'm writing to wholeheartedly recommend Marina Youssef for any future opportunities. I had the pleasure of witnessing her exceptional skills and dedication to her work. Marina's outstanding technical expertise, combined with her innovative approach, made a significant impact on our technical team. Her ability to problem-solve and collaborate with colleagues was impressive, and her attention to detail ensured high-quality results. I was particularly impressed by Marina's ability to lead projects and manage teams with ease. Her strong work ethic and positive attitude made her a valuable asset to our organization. I strongly endorse Marina Youssef for any future endeavors. She is a talented and dedicated professional who will undoubtedly make a lasting impact."
                                     </p>
                                 </div> <!-- end testimonial-slider__slide -->
-                
+
                                 <div class="testimonial-slider__slide swiper-slide">
                                     <div class="testimonial-slider__author">
-                                        <img src="images/avatars/user-01.jpg" alt="Author image" class="testimonial-slider__avatar">
+                                        <img src="images/avatars/user-04.jpg" alt="Author image" class="testimonial-slider__avatar">
                                         <cite class="testimonial-slider__cite">
-                                            <strong>Mohamed Nagy</strong>
-                                            <span>Data Strategy Lead, Mabani Misr</span>
+                                            <strong>Ahmed Salah</strong>
+                                            <span>Electrical Technical Manager, ECC</span>
                                         </cite>
                                     </div>
                                     <p>
-                                   Marina bridges the gap between engineering expertise and data analytics seamlessly. Her dashboards and reports are not only accurate but also tell a clear story that executives can act on immediately.
+                                   "It was a pleasure working with you during the period we worked together. You are a dedicated and hardworking person who always delivers your tasks with high quality and professionalism. You have excellent communication skills and a strong sense of teamwork — you always support your colleagues and contribute to building a positive and collaborative team spirit. Your commitment, positive attitude, and reliability make you a valuable asset to any team. I truly wish you all the best and a successful journey ahead."
                                     </p>
                                 </div> <!-- end testimonial-slider__slide -->
+
                    
                             </div> <!-- end swiper-wrapper -->
         
